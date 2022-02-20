@@ -1,0 +1,67 @@
+<%- include('./partials/header.ejs')%>
+    <h1 id="head"> Welcome! </h1>
+    <hr>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div class="container" width="10px" height="10px">
+        <div class="row">
+            <div class="col-md-8">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col col-md-4"><canvas id="pieChart"></canvas></div>
+            <div class="col col-md-6">
+                <h3>Growth</h3>
+            </div>
+            <div class="col col-md-6 ">
+                <h3>Loss</h3>
+            </div>
+        </div>
+
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['India', 'Oman', 'US'],
+                    datasets: [{
+                        data: [246, 596, 185],
+                        backgroundColor: [
+                            'rgb(255,0,0)',
+                            'rgb(255,255,0)',
+                            'rgb(255,0,255)',
+
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+
+            });
+
+            const context = document.getElementById('pieChart').getContext('2d');
+            const pieChart = new Chart(context, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'India',
+                        'Onam',
+                        'US'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [300, 50, 100],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            })
+        </script>
+    </div>
+
+
+
+    <%- include('./partials/footer.ejs')%>
